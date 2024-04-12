@@ -9,7 +9,7 @@ package com.mycompany.u1a4_wangsteven;
  * @author 342480696
  */
 public class StudentGradesProgram extends javax.swing.JFrame {
-
+    // This is a comment.
     /**
      * Creates new form StudentGradesProgram
      */
