@@ -41,7 +41,7 @@ public class StudentGradesProgram extends javax.swing.JFrame {
         studentAverageButton = new javax.swing.JButton();
         courseAverageButton = new javax.swing.JToggleButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        outputField1 = new javax.swing.JTextArea();
         outputField = new javax.swing.JScrollPane();
         outputField2 = new javax.swing.JTextArea();
         testOne = new javax.swing.JTextField();
@@ -89,10 +89,10 @@ public class StudentGradesProgram extends javax.swing.JFrame {
             }
         });
 
-        jTextArea1.setEditable(false);
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        outputField1.setEditable(false);
+        outputField1.setColumns(20);
+        outputField1.setRows(5);
+        jScrollPane1.setViewportView(outputField1);
 
         outputField2.setEditable(false);
         outputField2.setColumns(20);
@@ -224,6 +224,7 @@ public class StudentGradesProgram extends javax.swing.JFrame {
         } catch (Exception e){
             outputField2.setText("Input must be a number.");
         }
+        outputField1.setText(testOneAsString);
     }//GEN-LAST:event_addButtonActionPerformed
 
     private void studentAverageButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_studentAverageButtonActionPerformed
@@ -289,9 +290,9 @@ public class StudentGradesProgram extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextField lastNameField;
     private javax.swing.JScrollPane outputField;
+    private javax.swing.JTextArea outputField1;
     private javax.swing.JTextArea outputField2;
     private javax.swing.JButton studentAverageButton;
     private javax.swing.JTextField testFour;
