@@ -14,6 +14,8 @@ public class StudentGradesProgram extends javax.swing.JFrame {
      * Creates new form StudentGradesProgram
      */
     
+    String[][] studentInfo = new String[6][30];
+    int numberOfStudents;
     
     public StudentGradesProgram() {
         initComponents();
@@ -40,14 +42,14 @@ public class StudentGradesProgram extends javax.swing.JFrame {
         courseAverageButton = new javax.swing.JToggleButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        jTextArea2 = new javax.swing.JTextArea();
+        outputField = new javax.swing.JScrollPane();
+        outputField2 = new javax.swing.JTextArea();
         testOne = new javax.swing.JTextField();
         testTwo = new javax.swing.JTextField();
         testThree = new javax.swing.JTextField();
         testFour = new javax.swing.JTextField();
-        firstName = new javax.swing.JTextField();
-        lastName = new javax.swing.JTextField();
+        firstNameField = new javax.swing.JTextField();
+        lastNameField = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -92,14 +94,20 @@ public class StudentGradesProgram extends javax.swing.JFrame {
         jTextArea1.setRows(5);
         jScrollPane1.setViewportView(jTextArea1);
 
-        jTextArea2.setEditable(false);
-        jTextArea2.setColumns(20);
-        jTextArea2.setRows(5);
-        jScrollPane2.setViewportView(jTextArea2);
+        outputField2.setEditable(false);
+        outputField2.setColumns(20);
+        outputField2.setRows(5);
+        outputField.setViewportView(outputField2);
 
         testThree.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 testThreeActionPerformed(evt);
+            }
+        });
+
+        firstNameField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                firstNameFieldActionPerformed(evt);
             }
         });
 
@@ -111,11 +119,11 @@ public class StudentGradesProgram extends javax.swing.JFrame {
                 .addGap(21, 21, 21)
                 .addComponent(jLabel2)
                 .addGap(18, 18, 18)
-                .addComponent(firstName, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(firstNameField, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel3)
                 .addGap(18, 18, 18)
-                .addComponent(lastName, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(lastNameField, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addGap(30, 30, 30)
@@ -142,7 +150,7 @@ public class StudentGradesProgram extends javax.swing.JFrame {
                     .addComponent(courseAverageButton))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 242, Short.MAX_VALUE)
+                    .addComponent(outputField, javax.swing.GroupLayout.DEFAULT_SIZE, 242, Short.MAX_VALUE)
                     .addComponent(jScrollPane1))
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -159,8 +167,8 @@ public class StudentGradesProgram extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(jLabel3)
-                    .addComponent(firstName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lastName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(firstNameField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lastNameField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(34, 34, 34)
@@ -189,7 +197,7 @@ public class StudentGradesProgram extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(courseAverageButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                    .addComponent(outputField, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                 .addContainerGap(45, Short.MAX_VALUE))
         );
 
@@ -198,6 +206,24 @@ public class StudentGradesProgram extends javax.swing.JFrame {
 
     private void addButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addButtonActionPerformed
         // TODO add your handling code here:
+        
+        String firstName, testOneAsString, lastName;
+        firstName = firstNameField.getText();
+        testOneAsString = testOne.getText();
+        lastName = lastNameField.getText();
+        double testOneAsDouble;
+        
+        try {
+        studentInfo[numberOfStudents][0] = firstName;
+        studentInfo[numberOfStudents][1] = lastName;
+        studentInfo[numberOfStudents][2] = testOneAsString;
+        studentInfo[numberOfStudents][3] = "";
+        studentInfo[numberOfStudents][4] = "";
+        studentInfo[numberOfStudents][5] = "";
+        
+        } catch (Exception e){
+            outputField2.setText("Input must be a number.");
+        }
     }//GEN-LAST:event_addButtonActionPerformed
 
     private void studentAverageButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_studentAverageButtonActionPerformed
@@ -211,6 +237,10 @@ public class StudentGradesProgram extends javax.swing.JFrame {
     private void testThreeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_testThreeActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_testThreeActionPerformed
+
+    private void firstNameFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_firstNameFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_firstNameFieldActionPerformed
 
     /**
      * @param args the command line arguments
@@ -250,7 +280,7 @@ public class StudentGradesProgram extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addButton;
     private javax.swing.JToggleButton courseAverageButton;
-    private javax.swing.JTextField firstName;
+    private javax.swing.JTextField firstNameField;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -259,10 +289,10 @@ public class StudentGradesProgram extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextArea jTextArea2;
-    private javax.swing.JTextField lastName;
+    private javax.swing.JTextField lastNameField;
+    private javax.swing.JScrollPane outputField;
+    private javax.swing.JTextArea outputField2;
     private javax.swing.JButton studentAverageButton;
     private javax.swing.JTextField testFour;
     private javax.swing.JTextField testOne;
