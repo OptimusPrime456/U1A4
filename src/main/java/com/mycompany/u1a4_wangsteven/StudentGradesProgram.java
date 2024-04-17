@@ -207,24 +207,33 @@ public class StudentGradesProgram extends javax.swing.JFrame {
     private void addButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addButtonActionPerformed
         // TODO add your handling code here:
         
-        String firstName, testOneAsString, lastName;
+        String firstName, testOneAsString, lastName, testTwoAsString, testThreeAsString, testFourAsString;
+        int counter = 0;
+        
         firstName = firstNameField.getText();
-        testOneAsString = testOne.getText();
         lastName = lastNameField.getText();
+        
+        testOneAsString = testOne.getText();
+        testTwoAsString = testTwo.getText();
+        testThreeAsString = testThree.getText();
+        testFourAsString = testFour.getText();
+        
+        counter++;
+                
         double testOneAsDouble;
         
         try {
         studentInfo[numberOfStudents][0] = firstName;
         studentInfo[numberOfStudents][1] = lastName;
         studentInfo[numberOfStudents][2] = testOneAsString;
-        studentInfo[numberOfStudents][3] = "";
-        studentInfo[numberOfStudents][4] = "";
-        studentInfo[numberOfStudents][5] = "";
+        studentInfo[numberOfStudents][3] = testTwoAsString;
+        studentInfo[numberOfStudents][4] = testThreeAsString;
+        studentInfo[numberOfStudents][5] = testFourAsString;
         
         } catch (Exception e){
             outputField2.setText("Input must be a number.");
         }
-        outputField1.setText(testOneAsString);
+        outputField1.setText("Student " + counter + ": " + firstName + " " + lastName + "   Grade 1: " + testOneAsString + "% Grade 2: " + testTwoAsString + "% Grade 3: " + testThreeAsString + "% Grade 4: " + testFourAsString + "%");
     }//GEN-LAST:event_addButtonActionPerformed
 
     private void studentAverageButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_studentAverageButtonActionPerformed
