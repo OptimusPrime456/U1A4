@@ -301,7 +301,7 @@ public class StudentGradesProgram extends javax.swing.JFrame {
         average = Math.round(average*100);
         average = average/100;
         
-        outputField2.setText(studentInfo[rightStudent][0] + studentInfo[rightStudent][1] + "'s average is: " + average + "%");
+        outputField2.setText(studentInfo[rightStudent][0] + " " + studentInfo[rightStudent][1] + "'s average is: " + average + "%");
     }//GEN-LAST:event_studentAverageButtonActionPerformed
 
     private void courseAverageButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_courseAverageButtonActionPerformed
