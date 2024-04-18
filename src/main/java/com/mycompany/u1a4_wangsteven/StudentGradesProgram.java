@@ -15,7 +15,7 @@ public class StudentGradesProgram extends javax.swing.JFrame {
      */
     
     String[][] studentInfo = new String[30][6];
-    int numberOfStudents;
+    int numberOfStudents = 0;
     
     public StudentGradesProgram() {
         initComponents();
@@ -51,6 +51,7 @@ public class StudentGradesProgram extends javax.swing.JFrame {
         outputField2 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Student Grades");
 
         jLabel1.setFont(new java.awt.Font("Copperplate Gothic Light", 1, 24)); // NOI18N
         jLabel1.setText("Student Grades");
@@ -112,54 +113,57 @@ public class StudentGradesProgram extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(21, 21, 21)
-                .addComponent(jLabel2)
-                .addGap(18, 18, 18)
-                .addComponent(firstNameField, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(33, 33, 33)
-                .addComponent(jLabel3)
-                .addGap(18, 18, 18)
-                .addComponent(lastNameField, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(30, 30, 30)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(studentAverageButton)
-                        .addComponent(addButton)
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(jLabel7)
-                            .addGap(18, 18, 18)
-                            .addComponent(testFour))
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(jLabel4)
-                            .addGap(18, 18, 18)
-                            .addComponent(testOne, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(jLabel5)
-                            .addGap(18, 18, 18)
-                            .addComponent(testTwo))
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(jLabel6)
-                            .addGap(18, 18, 18)
-                            .addComponent(testThree)))
-                    .addComponent(courseAverageButton))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 242, Short.MAX_VALUE)
-                    .addComponent(outputField2))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(30, 30, 30)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(studentAverageButton)
+                                .addComponent(addButton)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(jLabel7)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(testFour))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(jLabel4)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(testOne, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(jLabel5)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(testTwo))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(jLabel6)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(testThree)))
+                            .addComponent(courseAverageButton))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 242, Short.MAX_VALUE)
+                            .addComponent(outputField2)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(21, 21, 21)
+                                .addComponent(jLabel2)
+                                .addGap(18, 18, 18)
+                                .addComponent(firstNameField, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(33, 33, 33)
+                                .addComponent(jLabel3)
+                                .addGap(18, 18, 18)
+                                .addComponent(lastNameField, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(124, 124, 124)
+                                .addComponent(jLabel1)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addGap(110, 110, 110))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(15, 15, 15)
+                .addGap(9, 9, 9)
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(jLabel3)
@@ -205,17 +209,23 @@ public class StudentGradesProgram extends javax.swing.JFrame {
     private void addButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addButtonActionPerformed
         // TODO add your handling code here:
         
-        String firstName, testOneAsString, lastName, testTwoAsString, testThreeAsString, testFourAsString;
-        boolean error = false;
+        outputField2.setText("");
+        
+        String firstName, lastName, testOneAsString,testTwoAsString, testThreeAsString, testFourAsString;
+        boolean error = false, error2 = false, error3 = false;
 
         firstName = firstNameField.getText();
         lastName = lastNameField.getText();
-        
         testOneAsString = testOne.getText();
         testTwoAsString = testTwo.getText();
         testThreeAsString = testThree.getText();
         testFourAsString = testFour.getText();
         
+        try {
+        if (firstName.equals("") || lastName.equals("") || testOneAsString.equals("") || testTwoAsString.equals("") || testThreeAsString.equals("") || testFourAsString.equals("")) {
+            outputField2.setText("You left a required piece of information empty.");
+        } 
+        else {
         try {
         studentInfo[numberOfStudents][0] = firstName;
         studentInfo[numberOfStudents][1] = lastName;
@@ -229,26 +239,97 @@ public class StudentGradesProgram extends javax.swing.JFrame {
         double testThreeAsDouble = Double.parseDouble(testThreeAsString);
         double testFourAsDouble = Double.parseDouble(testFourAsString);
         
-        } catch (NumberFormatException e){
+        } 
+        catch (NumberFormatException e) {
             error = true;
         }
- 
         if (error == true) {
             outputField2.setText("You must enter a number for the grades.");
-        } else {
-        if (numberOfStudents <= 30) {
-        numberOfStudents++;
-        outputField1.append("Student " + numberOfStudents + ": " + firstName + " " + lastName + "   Grade 1: " + testOneAsString + "% Grade 2: " + testTwoAsString + "% Grade 3: " + testThreeAsString + "% Grade 4: " + testFourAsString + "%\n");       
+        } 
+        for (int i = 0; i < numberOfStudents; i++) {
+            if (studentInfo[numberOfStudents][0].equals(studentInfo[i][0]) && studentInfo[numberOfStudents][1].equals(studentInfo[i][1])){
+                error2 = true;
+                if (error2 == true) {
+                    break;
+                }
             }
+        }
+        if (error2 == true) {
+            outputField2.setText("Student already exists.");
+        } 
+        else {
+          error2 = false;
+        }
+        if (error == false && error2 == false && error3 == false) {
+            numberOfStudents++;
+            outputField1.append("Student " + numberOfStudents + ": " + firstName + " " + lastName + "   Grade 1: " + testOneAsString + "% Grade 2: " + testTwoAsString + "% Grade 3: " + testThreeAsString + "% Grade 4: " + testFourAsString + "%\n");       
+                    }
+                }
+            }
+        catch (Exception e) {
+            error3 = true;
+        }
+        if (error3 == true) {
+            outputField2.setText("The class is at capacity.");
         }
     }//GEN-LAST:event_addButtonActionPerformed
 
     private void studentAverageButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_studentAverageButtonActionPerformed
         // TODO add your handling code here:
+        
+        int rightStudent = 0;
+        double average;
+        
+        for (int i = 0; i < numberOfStudents; i++) {
+            if (firstNameField.getText().equals(studentInfo[i][0]) && lastNameField.getText().equals(studentInfo[i][1])) {
+                rightStudent = i;
+                break;
+            }
+        }
+        
+        String test1 = studentInfo[rightStudent][2];
+        String test2 = studentInfo[rightStudent][3];
+        String test3 = studentInfo[rightStudent][4];
+        String test4 = studentInfo[rightStudent][5];
+        
+        double test1AsDouble = Double.parseDouble(test1);
+        double test2AsDouble = Double.parseDouble(test2);
+        double test3AsDouble = Double.parseDouble(test3);
+        double test4AsDouble = Double.parseDouble(test4);
+        
+        average = (test1AsDouble + test2AsDouble + test3AsDouble + test4AsDouble)/4;
+        average = Math.round(average*100);
+        average = average/100;
+        
+        outputField2.setText(studentInfo[rightStudent][0] + studentInfo[rightStudent][1] + "'s average is: " + average + "%");
     }//GEN-LAST:event_studentAverageButtonActionPerformed
 
     private void courseAverageButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_courseAverageButtonActionPerformed
         // TODO add your handling code here:
+        
+        double average, classAverage = 0;
+        String test1, test2, test3, test4;
+        double test1AsDouble, test2AsDouble, test3AsDouble, test4AsDouble;
+        
+        for (int i = 0; i < numberOfStudents; i++) {
+        test1 = studentInfo[i][2];
+        test2 = studentInfo[i][3];
+        test3 = studentInfo[i][4];
+        test4 = studentInfo[i][5];
+        test1AsDouble = Double.parseDouble(test1);
+        test2AsDouble = Double.parseDouble(test2);
+        test3AsDouble = Double.parseDouble(test3);
+        test4AsDouble = Double.parseDouble(test4);
+        
+        average = test1AsDouble + test2AsDouble + test3AsDouble + test4AsDouble;
+        classAverage += average;
+        }
+        
+        classAverage = classAverage / (4 * numberOfStudents);
+        classAverage = Math.round(classAverage*100);
+        classAverage = classAverage/100;
+        
+        outputField2.setText("Course average is: " + classAverage  + "%");
     }//GEN-LAST:event_courseAverageButtonActionPerformed
 
     private void testThreeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_testThreeActionPerformed
