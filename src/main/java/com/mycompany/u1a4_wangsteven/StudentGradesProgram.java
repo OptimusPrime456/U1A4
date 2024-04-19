@@ -221,6 +221,11 @@ public class StudentGradesProgram extends javax.swing.JFrame {
         testThreeAsString = testThree.getText();
         testFourAsString = testFour.getText();
         
+        double testOneAsDouble2 = Double.parseDouble(testOneAsString);
+        double testTwoAsDouble2 = Double.parseDouble(testTwoAsString);
+        double testThreeAsDouble2 = Double.parseDouble(testThreeAsString);
+        double testFourAsDouble2 = Double.parseDouble(testFourAsString);
+        
         try {
         if (firstName.equals("") || lastName.equals("") || testOneAsString.equals("") || testTwoAsString.equals("") || testThreeAsString.equals("") || testFourAsString.equals("")) {
             outputField2.setText("You left a required piece of information empty.");
@@ -243,6 +248,7 @@ public class StudentGradesProgram extends javax.swing.JFrame {
         catch (NumberFormatException e) {
             error = true;
         }
+        
         if (error == true) {
             outputField2.setText("You must enter a number for the grades.");
         } 
@@ -260,12 +266,16 @@ public class StudentGradesProgram extends javax.swing.JFrame {
         else {
           error2 = false;
         }
+        if (testOneAsDouble2 < 0 || testOneAsDouble2 > 100 || testTwoAsDouble2 < 0 || testTwoAsDouble2 > 100 || testThreeAsDouble2 < 0 || testThreeAsDouble2 > 100 || testFourAsDouble2 < 0 || testFourAsDouble2 > 100) {
+            outputField2.setText("Please enter numbers between 1 and 100.");
+        } else {
         if (error == false && error2 == false && error3 == false) {
             numberOfStudents++;
             outputField1.append("Student " + numberOfStudents + ": " + firstName + " " + lastName + "   Grade 1: " + testOneAsString + "% Grade 2: " + testTwoAsString + "% Grade 3: " + testThreeAsString + "% Grade 4: " + testFourAsString + "%\n");       
                     }
                 }
             }
+        }
         catch (Exception e) {
             error3 = true;
         }
