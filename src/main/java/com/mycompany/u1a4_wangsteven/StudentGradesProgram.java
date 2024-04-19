@@ -229,8 +229,8 @@ public class StudentGradesProgram extends javax.swing.JFrame {
         try {
         if (firstName.equals("") || lastName.equals("") || testOneAsString.equals("") || testTwoAsString.equals("") || testThreeAsString.equals("") || testFourAsString.equals("")) {
             outputField2.setText("You left a required piece of information empty.");
+            return;
         } 
-        else {
         try {
         studentInfo[numberOfStudents][0] = firstName;
         studentInfo[numberOfStudents][1] = lastName;
@@ -274,7 +274,7 @@ public class StudentGradesProgram extends javax.swing.JFrame {
             outputField1.append("Student " + numberOfStudents + ": " + firstName + " " + lastName + "   Grade 1: " + testOneAsString + "% Grade 2: " + testTwoAsString + "% Grade 3: " + testThreeAsString + "% Grade 4: " + testFourAsString + "%\n");       
                     }
                 }
-            }
+            
         }
         catch (Exception e) {
             error3 = true;
