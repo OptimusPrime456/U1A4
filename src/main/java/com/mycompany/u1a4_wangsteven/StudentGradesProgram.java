@@ -9,14 +9,14 @@ package com.mycompany.u1a4_wangsteven;
  * @author 342480696
  */
 public class StudentGradesProgram extends javax.swing.JFrame {
+
     // This is a comment.
     /**
      * Creates new form StudentGradesProgram
      */
-    
     String[][] studentInfo = new String[30][6];
     int numberOfStudents = 0;
-    
+
     public StudentGradesProgram() {
         initComponents();
     }
@@ -208,10 +208,9 @@ public class StudentGradesProgram extends javax.swing.JFrame {
 
     private void addButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addButtonActionPerformed
         // TODO add your handling code here:
-        
+
         String firstName, lastName, test1, test2, test3, test4;
         double firstNameAsDouble, lastNameAsDouble, test1AsDouble, test2AsDouble, test3AsDouble, test4AsDouble;
-        
 
         firstName = firstNameField.getText();
         lastName = lastNameField.getText();
@@ -219,99 +218,108 @@ public class StudentGradesProgram extends javax.swing.JFrame {
         test2 = testTwo.getText();
         test3 = testThree.getText();
         test4 = testFour.getText();
-        
-        if (firstName.equals("") || lastName.equals("") || test1.equals("")|| test2.equals("")|| test3.equals("")|| test4.equals("")){
+
+        if (firstName.equals("") || lastName.equals("") || test1.equals("") || test2.equals("") || test3.equals("") || test4.equals("")) {
             outputField2.setText("You left a required piece of information empty.");
             return;
         }
+        try {
+            test1AsDouble = Double.parseDouble(test1);
+            test2AsDouble = Double.parseDouble(test2);
+            test3AsDouble = Double.parseDouble(test3);
+            test4AsDouble = Double.parseDouble(test4);
+        } catch (NumberFormatException e) {
+            outputField2.setText("You must enter a number for the grades.");
+            return;
+        }
+
+        if (numberOfStudents >= 30) {
+            outputField2.setText("The class is at capacity.");
+            return;
+        } 
+        
+        if (test1AsDouble > 100 || test1AsDouble < 0 || test2AsDouble > 100 || test2AsDouble < 0 || test3AsDouble > 100 || test3AsDouble < 0 || test4AsDouble > 100 || test4AsDouble < 0) {
+            outputField2.setText("Please enter numbers between 0-100");
+            return;
+        }
         else {
-            try {
-                firstNameAsDouble = Double.parseDouble(firstName);
-                lastNameAsDouble = Double.parseDouble(lastName);
-                test1AsDouble = Double.parseDouble(test1);
-                test2AsDouble = Double.parseDouble(test2);
-                test3AsDouble = Double.parseDouble(test3);
-                test4AsDouble = Double.parseDouble(test4);
-            }
-            catch (NumberFormatException e){
-                outputField2.setText("You must enter a number for the grades.");
-            }
-            if (numberOfStudents > 30){
-                outputField2.setText("The class is at capacity.");
-            }
-            else {
-                for (int i = 0; i < numberOfStudents; i++) {
-                    if (firstName.equals(studentInfo[i][0])&&lastName.equals(studentInfo[i][1])){
-                        outputField2.setText("Student already exists.");
-                        return;
-                    }
-                }
-                if (test1AsDouble <= 100 && test1AsDouble >= 0 %% test2AsDouble <= 100 && test2AsDouble >= 0 %% test3AsDouble <= 100 && test3AsDouble >= 0 %% test4AsDouble <= 100 && test4AsDouble >= 0){
-                outputField1.append(firstName + " " + lastName + "   Grade 1: " + test1 + "% Grade 2: " + test2 + "% Grade 3: " + test3 + "% Grade 4: " + test4 + "%\n");
-                }
-            }
+            studentInfo[numberOfStudents][0] = firstName;
+            studentInfo[numberOfStudents][1] = lastName;
+            studentInfo[numberOfStudents][2] = test1;
+            studentInfo[numberOfStudents][3] = test2;
+            studentInfo[numberOfStudents][4] = test3;
+            studentInfo[numberOfStudents][5] = test4;
             
-            outputField2.setText("");
+            for (int i = 0; i < numberOfStudents; i++) {
+            if (firstName.equals(studentInfo[i][0]) && lastName.equals(studentInfo[i][1])) {
+                outputField2.setText("Student already exists.");
+                return;
+            }
         }
             
+            outputField1.append(firstName + " " + lastName + "   Grade 1: " + test1 + "% Grade 2: " + test2 + "% Grade 3: " + test3 + "% Grade 4: " + test4 + "%\n");
+            numberOfStudents++;
+        }
+        outputField2.setText("");
+
     }//GEN-LAST:event_addButtonActionPerformed
 
     private void studentAverageButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_studentAverageButtonActionPerformed
         // TODO add your handling code here:
-        
+
         int rightStudent = 0;
         double average;
-        
+
         for (int i = 0; i < numberOfStudents; i++) {
             if (firstNameField.getText().equals(studentInfo[i][0]) && lastNameField.getText().equals(studentInfo[i][1])) {
                 rightStudent = i;
                 break;
             }
         }
-        
+
         String test1 = studentInfo[rightStudent][2];
         String test2 = studentInfo[rightStudent][3];
         String test3 = studentInfo[rightStudent][4];
         String test4 = studentInfo[rightStudent][5];
-        
+
         double test1AsDouble = Double.parseDouble(test1);
         double test2AsDouble = Double.parseDouble(test2);
         double test3AsDouble = Double.parseDouble(test3);
         double test4AsDouble = Double.parseDouble(test4);
-        
-        average = (test1AsDouble + test2AsDouble + test3AsDouble + test4AsDouble)/4;
-        average = Math.round(average*100);
-        average = average/100;
-        
+
+        average = (test1AsDouble + test2AsDouble + test3AsDouble + test4AsDouble) / 4;
+        average = Math.round(average * 100);
+        average = average / 100;
+
         outputField2.setText(studentInfo[rightStudent][0] + " " + studentInfo[rightStudent][1] + "'s average is: " + average + "%");
     }//GEN-LAST:event_studentAverageButtonActionPerformed
 
     private void courseAverageButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_courseAverageButtonActionPerformed
         // TODO add your handling code here:
-        
+
         double average, classAverage = 0;
         String test1, test2, test3, test4;
         double test1AsDouble, test2AsDouble, test3AsDouble, test4AsDouble;
-        
+
         for (int i = 0; i < numberOfStudents; i++) {
-        test1 = studentInfo[i][2];
-        test2 = studentInfo[i][3];
-        test3 = studentInfo[i][4];
-        test4 = studentInfo[i][5];
-        test1AsDouble = Double.parseDouble(test1);
-        test2AsDouble = Double.parseDouble(test2);
-        test3AsDouble = Double.parseDouble(test3);
-        test4AsDouble = Double.parseDouble(test4);
-        
-        average = test1AsDouble + test2AsDouble + test3AsDouble + test4AsDouble;
-        classAverage += average;
+            test1 = studentInfo[i][2];
+            test2 = studentInfo[i][3];
+            test3 = studentInfo[i][4];
+            test4 = studentInfo[i][5];
+            test1AsDouble = Double.parseDouble(test1);
+            test2AsDouble = Double.parseDouble(test2);
+            test3AsDouble = Double.parseDouble(test3);
+            test4AsDouble = Double.parseDouble(test4);
+
+            average = test1AsDouble + test2AsDouble + test3AsDouble + test4AsDouble;
+            classAverage += average;
         }
-        
+
         classAverage = classAverage / (4 * numberOfStudents);
-        classAverage = Math.round(classAverage*100);
-        classAverage = classAverage/100;
-        
-        outputField2.setText("Course average is: " + classAverage  + "%");
+        classAverage = Math.round(classAverage * 100);
+        classAverage = classAverage / 100;
+
+        outputField2.setText("Course average is: " + classAverage + "%");
     }//GEN-LAST:event_courseAverageButtonActionPerformed
 
     private void testThreeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_testThreeActionPerformed
