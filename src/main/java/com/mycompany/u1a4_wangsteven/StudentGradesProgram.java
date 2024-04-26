@@ -275,27 +275,29 @@ public class StudentGradesProgram extends javax.swing.JFrame {
         if (firstName.equals("") || lastName.equals("")) {
             outputField2.setText("You left a required piece of information empty.");
             return;
-        }
+        } else {
 
-        for (int i = 0; i < numberOfStudents; i++) {
-            if (firstNameField.getText().equals(studentInfo[i][0]) && lastNameField.getText().equals(studentInfo[i][1])) {
-                rightStudent = i;
-                test1 = studentInfo[rightStudent][2];
-                test2 = studentInfo[rightStudent][3];
-                test3 = studentInfo[rightStudent][4];
-                test4 = studentInfo[rightStudent][5];
-                double test1AsDouble = Double.parseDouble(test1);
-                double test2AsDouble = Double.parseDouble(test2);
-                double test3AsDouble = Double.parseDouble(test3);
-                double test4AsDouble = Double.parseDouble(test4);
-                average = (test1AsDouble + test2AsDouble + test3AsDouble + test4AsDouble) / 4;
-                average = Math.round(average * 100);
-                average = average / 100;
+            for (int i = 0; i < numberOfStudents; i++) {
+                if (firstNameField.getText().equals(studentInfo[i][0]) && lastNameField.getText().equals(studentInfo[i][1])) {
+                    rightStudent = i;
+                    test1 = studentInfo[rightStudent][2];
+                    test2 = studentInfo[rightStudent][3];
+                    test3 = studentInfo[rightStudent][4];
+                    test4 = studentInfo[rightStudent][5];
+                    double test1AsDouble = Double.parseDouble(test1);
+                    double test2AsDouble = Double.parseDouble(test2);
+                    double test3AsDouble = Double.parseDouble(test3);
+                    double test4AsDouble = Double.parseDouble(test4);
+                    average = (test1AsDouble + test2AsDouble + test3AsDouble + test4AsDouble) / 4;
+                    average = Math.round(average * 100);
+                    average = average / 100;
 
-                outputField2.setText(studentInfo[rightStudent][0] + " " + studentInfo[rightStudent][1] + "'s average is: " + average + "%");
-                break;
-            } if (rightStudent != i) {
-                outputField2.setText("Student doesn't exist.");
+                    outputField2.setText(studentInfo[rightStudent][0] + " " + studentInfo[rightStudent][1] + "'s average is: " + average + "%");
+                    break;
+                }
+                if (rightStudent != i) {
+                    outputField2.setText("Student doesn't exist.");
+                }
             }
         }
 
