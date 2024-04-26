@@ -267,13 +267,10 @@ public class StudentGradesProgram extends javax.swing.JFrame {
         // TODO add your handling code here:
 
         int rightStudent = 0;
+        String test1, test2, test3, test4;
         double average;
         String firstName = firstNameField.getText();
         String lastName = lastNameField.getText();
-        String test1 = studentInfo[rightStudent][2];
-        String test2 = studentInfo[rightStudent][3];
-        String test3 = studentInfo[rightStudent][4];
-        String test4 = studentInfo[rightStudent][5];
 
         if (firstName.equals("") || lastName.equals("")) {
             outputField2.setText("You left a required piece of information empty.");
@@ -283,20 +280,26 @@ public class StudentGradesProgram extends javax.swing.JFrame {
         for (int i = 0; i < numberOfStudents; i++) {
             if (firstNameField.getText().equals(studentInfo[i][0]) && lastNameField.getText().equals(studentInfo[i][1])) {
                 rightStudent = i;
+                test1 = studentInfo[rightStudent][2];
+                test2 = studentInfo[rightStudent][3];
+                test3 = studentInfo[rightStudent][4];
+                test4 = studentInfo[rightStudent][5];
+                double test1AsDouble = Double.parseDouble(test1);
+                double test2AsDouble = Double.parseDouble(test2);
+                double test3AsDouble = Double.parseDouble(test3);
+                double test4AsDouble = Double.parseDouble(test4);
+                average = (test1AsDouble + test2AsDouble + test3AsDouble + test4AsDouble) / 4;
+                average = Math.round(average * 100);
+                average = average / 100;
+
+                outputField2.setText(studentInfo[rightStudent][0] + " " + studentInfo[rightStudent][1] + "'s average is: " + average + "%");
                 break;
+            } if (rightStudent != i) {
+                outputField2.setText("Student doesn't exist.");
             }
         }
 
-        double test1AsDouble = Double.parseDouble(test1);
-        double test2AsDouble = Double.parseDouble(test2);
-        double test3AsDouble = Double.parseDouble(test3);
-        double test4AsDouble = Double.parseDouble(test4);
 
-        average = (test1AsDouble + test2AsDouble + test3AsDouble + test4AsDouble) / 4;
-        average = Math.round(average * 100);
-        average = average / 100;
-
-        outputField2.setText(studentInfo[rightStudent][0] + " " + studentInfo[rightStudent][1] + "'s average is: " + average + "%");
     }//GEN-LAST:event_studentAverageButtonActionPerformed
 
     private void courseAverageButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_courseAverageButtonActionPerformed
