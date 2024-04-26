@@ -236,27 +236,26 @@ public class StudentGradesProgram extends javax.swing.JFrame {
         if (numberOfStudents >= 30) {
             outputField2.setText("The class is at capacity.");
             return;
-        } 
-        
+        }
+
         if (test1AsDouble > 100 || test1AsDouble < 0 || test2AsDouble > 100 || test2AsDouble < 0 || test3AsDouble > 100 || test3AsDouble < 0 || test4AsDouble > 100 || test4AsDouble < 0) {
             outputField2.setText("Please enter numbers between 0-100");
             return;
-        }
-        else {
+        } else {
             studentInfo[numberOfStudents][0] = firstName;
             studentInfo[numberOfStudents][1] = lastName;
             studentInfo[numberOfStudents][2] = test1;
             studentInfo[numberOfStudents][3] = test2;
             studentInfo[numberOfStudents][4] = test3;
             studentInfo[numberOfStudents][5] = test4;
-            
+
             for (int i = 0; i < numberOfStudents; i++) {
-            if (firstName.equals(studentInfo[i][0]) && lastName.equals(studentInfo[i][1])) {
-                outputField2.setText("Student already exists.");
-                return;
+                if (firstName.equals(studentInfo[i][0]) && lastName.equals(studentInfo[i][1])) {
+                    outputField2.setText("Student already exists.");
+                    return;
+                }
             }
-        }
-            
+
             outputField1.append(firstName + " " + lastName + "   Grade 1: " + test1 + "% Grade 2: " + test2 + "% Grade 3: " + test3 + "% Grade 4: " + test4 + "%\n");
             numberOfStudents++;
         }
@@ -269,6 +268,17 @@ public class StudentGradesProgram extends javax.swing.JFrame {
 
         int rightStudent = 0;
         double average;
+        String firstName = firstNameField.getText();
+        String lastName = lastNameField.getText();
+        String test1 = studentInfo[rightStudent][2];
+        String test2 = studentInfo[rightStudent][3];
+        String test3 = studentInfo[rightStudent][4];
+        String test4 = studentInfo[rightStudent][5];
+
+        if (firstName.equals("") || lastName.equals("")) {
+            outputField2.setText("You left a required piece of information empty.");
+            return;
+        }
 
         for (int i = 0; i < numberOfStudents; i++) {
             if (firstNameField.getText().equals(studentInfo[i][0]) && lastNameField.getText().equals(studentInfo[i][1])) {
@@ -276,11 +286,6 @@ public class StudentGradesProgram extends javax.swing.JFrame {
                 break;
             }
         }
-
-        String test1 = studentInfo[rightStudent][2];
-        String test2 = studentInfo[rightStudent][3];
-        String test3 = studentInfo[rightStudent][4];
-        String test4 = studentInfo[rightStudent][5];
 
         double test1AsDouble = Double.parseDouble(test1);
         double test2AsDouble = Double.parseDouble(test2);
@@ -298,8 +303,15 @@ public class StudentGradesProgram extends javax.swing.JFrame {
         // TODO add your handling code here:
 
         double average, classAverage = 0;
-        String test1, test2, test3, test4;
+        String firstName, lastName, test1, test2, test3, test4;
         double test1AsDouble, test2AsDouble, test3AsDouble, test4AsDouble;
+
+        firstName = firstNameField.getText();
+        lastName = lastNameField.getText();
+        test1 = testOne.getText();
+        test2 = testTwo.getText();
+        test3 = testThree.getText();
+        test4 = testFour.getText();
 
         for (int i = 0; i < numberOfStudents; i++) {
             test1 = studentInfo[i][2];
